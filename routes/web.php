@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/new', 'testController.controllerMethod')
+Route::namespace('App\Http\Controllers')->group(function () {
+    Route::prefix('')->group(function () { //you can use prefix if you want
+      Route::get('/new', 'testController@controllerMethod');
+    });
+});
+//Route::get('/new', [testController::class, 'controllerMethod']);

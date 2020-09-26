@@ -9,6 +9,7 @@ class testController extends Controller
     //
     public function controllerMethod()
     {
-        # code...
+        return view('welcome');
+
     }
 }
